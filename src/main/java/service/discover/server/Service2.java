@@ -1,6 +1,7 @@
 package service.discover.server;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -10,10 +11,13 @@ public class Service2 {
 	
 	@Autowired
 	private Service1 service1;
+	
+	@Value("${server.port}")
+    private int serverPort;
 
 	@RequestMapping("/welcome")
 	public String welcome() {
-		return "welcome-to-service-2";
+		return "welcome-to-service-2 with "+serverPort;
 	}
 	
 	@RequestMapping("/service1")
