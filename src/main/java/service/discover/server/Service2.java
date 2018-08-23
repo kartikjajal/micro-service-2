@@ -25,4 +25,9 @@ public class Service2 {
 		return service1.getService1();
 	}
 	
+	@RequestMapping("/common")
+	public String common() {
+		return "welcome-to-common-service-2 with "+serverPort;
+	}
+	
 }
